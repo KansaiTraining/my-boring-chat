@@ -1,4 +1,7 @@
 import { useState } from "react";
+// 1. Import the UI components and styles
+import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 function App() {
   const [message, setMessage] = useState("");
@@ -32,32 +35,41 @@ function App() {
   };
 
   return (
-    <div style={{ maxWidth: 600, margin: "40px auto", fontFamily: "Arial" }}>
-      <h2>Our Boring AI Chat</h2>
+    <Authenticator>
+      {({ signOut, user }) => (
+        <div style={{ maxWidth: 600, margin: "40px auto", fontFamily: "Arial" }}>
+          <header style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <h2>Our Boring AI Chat</h2>
+            <button onClick={signOut}>Sign Out</button>
+          </header>
 
-      <div style={{ border: "1px solid #ccc", padding: 10, minHeight: 300 }}>
-        {chat.map((msg, index) => (
-          <p key={index}>
-            <strong>{msg.role}:</strong> {msg.content}
-          </p>
-        ))}
-      </div>
+          <p>Welcome, <strong>{user.username}</strong>!</p>
 
-      <div style={{ marginTop: 10 }}>
-        <input
-          style={{ width: "80%", padding: 8 }}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type your message..."
-        />
-        <button
-          style={{ padding: 8, marginLeft: 5 }}
-          onClick={sendMessage}
-        >
-          Send
-        </button>
-      </div>
-    </div>
+          <div style={{ border: "1px solid #ccc", padding: 10, minHeight: 300 }}>
+            {chat.map((msg, index) => (
+              <p key={index}>
+                <strong>{msg.role}:</strong> {msg.content}
+              </p>
+            ))}
+          </div>
+
+          <div style={{ marginTop: 10 }}>
+            <input
+              style={{ width: "80%", padding: 8 }}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Type your message..."
+            />
+            <button
+              style={{ padding: 8, marginLeft: 5 }}
+              onClick={sendMessage}
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      )}
+    </Authenticator>
   );
 }
 
