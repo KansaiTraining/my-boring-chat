@@ -14,10 +14,16 @@ function App() {
     setChat(prev => [...prev, userMessage]);
 
     try {
+      // 2. Get the fresh session tokens
+      const session = await fetchAuthSession();
+      const token = session.tokens?.idToken?.toString();
+
+      // 3. Perform the fetch with the Authorization header
       const response = await fetch(import.meta.env.VITE_API_URL, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify({ message })
       });
