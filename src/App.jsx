@@ -42,7 +42,7 @@ function App() {
   };
 
   return (
-    <Authenticator>
+    <Authenticator hideSignUp={true}>
       {({ signOut, user }) => (
         <div style={{ maxWidth: 600, margin: "40px auto", fontFamily: "Arial" }}>
           <header style={{ display: 'flex', justifyContent: 'space-between' }}>
