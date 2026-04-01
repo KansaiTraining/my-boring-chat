@@ -1,19 +1,20 @@
-# This is the version by default of a React + Vite app
+# From Zero to AI API: From Tokens to Real Users. Part 5
 
+This is the code for the Medium article dealing with AWS Cognito [here](https://medium.com/@hitorunajp/from-zero-to-ai-api-from-tokens-to-real-users-e86d4e3306de)
 
-# React + Vite
+![Image](FromAWStoAPI5.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To run this you just have to 
 
-Currently, two official plugins are available:
+```bash
+$ cd my-boring-chat
+$ npm install
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```
+create a `.env` file and 
+```bash
+npm run dev
+```
 
-## React Compiler
+More details in the [Medium post](https://medium.com/@hitorunajp/from-zero-to-ai-api-from-tokens-to-real-users-e86d4e3306de)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
