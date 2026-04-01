@@ -2,6 +2,7 @@ import { useState } from "react";
 // 1. Import the UI components and styles
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
+import { fetchAuthSession } from 'aws-amplify/auth';
 
 function App() {
   const [message, setMessage] = useState("");
